@@ -27,7 +27,7 @@ if [ "$USERID" -lt 1000 ]
     echo auth-minimum-user-id=499 >> /etc/rstudio/rserver.conf
 fi
 
-if [ "$USERID" -ne 1000 ]
+if [ "$USERID" -ne `id -u $USER` ]
 ## Configure user with a different USERID if requested.
   then
     echo "deleting user rstudio"
