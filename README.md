@@ -26,7 +26,7 @@ This repository contains **Dockerfile** for [Docker](https://www.docker.com/)'s 
     docker stop rstudio-dock
 
     # NEXT TIME 
-    docker run --rm -it -p 8787:8787 -e USERID=`id -u $USER` -e ROOT=TRUE -v <data-dir>:/data -v <libraries-dir>:/libraries cpgonzal/docker-rstudio /bin/bash
+    docker run --rm --name rstudio-dock -p 8787:8787 -e USERID=`id -u $USER` -v <data-dir>:/data -v <libraries-dir>:/libraries cpgonzal/docker-rstudio &
     # open http://<ip-address>:8787 
     docker inspect -f '{{.Name}} - {{.NetworkSettings.IPAddress }}' $(docker ps -aq)  
 
